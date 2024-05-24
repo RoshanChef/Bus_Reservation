@@ -12,7 +12,6 @@ I am <B style="color:yellow;">Roshan Kalmathe</B>.I love to do web development a
 ## ⚡ Technologies 
 - Front-end development using **HTML, Javascript,CSS,**
 - Backend development using **SQL,Python Django**
-- Solving Data structure and algorithm questions in **C++**
 
 ## 👋 Reach out to me 
 - 💬 Ask me about anything.
