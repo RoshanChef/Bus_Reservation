@@ -1,0 +1,167 @@
+<!-- for external css file -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static "CSS/CSS/all.min.css" %}>
+    <link rel="stylesheet" href={% static "CSS/webfonts" %}>
+    <link rel="stylesheet" href={% static "CSS/style.css" %}>
+
+</head>
+
+<body>
+
+    <header>
+        <a class="main">
+            <b>
+                <i class="fa-solid fa-bus fa-1x"></i>
+                Trave<span>l</span>
+            </b>
+        </a>
+
+        <ul>
+            <!-- name of url file -->
+            <li>
+                <a href={% url "Home" %}> <span>Home</span>
+                    <i class="fa-solid fa-home"></i>
+                </a></li>
+                <li><a href={% url "about_us" %}><span>About Us</span></a></li>
+
+
+
+                {% if session%}
+                <!-- <i class="fa-solid fa-user user" ></i> -->
+
+                <li><a href={% url "feed" %}><span>Feedback</span></a></li>
+                <li><a href={% url "cart" %}>
+                    <i class="fa-solid fa-ticket" style="margin:0; padding: 0; color: rgb(62, 0, 119);"></i>
+                </a></li>
+                <li>
+                    <a href={% url "my_order" %}>
+                        <i class="fa-regular fa-clipboard"></i>
+                    </a>
+                </li>
+                <i class="user fa-user fa-solid"></i>
+                <div class="logo">
+                    <div class="sub-menu-wrap">
+                        <div class="sub-menu">
+                            <div class="user-info">
+                                <a>
+                                    <i class="fa-solid fa-user fa-2x"></i>
+                                    <h3>{{session.name}}</h3>
+                                </a>
+                            </div>  
+
+                            <hr>
+                            <div class="change">
+                                <a href={% url "EditProfile" %}>
+                                    <i class="fa-solid fa-gear"></i>
+                                    Edit Profile
+                                </a>
+                            </div>
+                            <div class="see">
+                                <a href={% url "profile" %}>
+                                    <i class="fa-regular fa-user"></i>
+                                    See Profile
+                                </a>
+                            </div>
+                            <div class="logout">
+                                <a href={% url "logout" %}>
+
+                                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% elif agent %}
+                    <li> <a href={% url "add_bus" %} 
+                        <i class="fa-solid fa-plus"></i> 
+                    </a>
+                </li>                   
+                <li> <a href={% url "agen_added" %} 
+                    <i class="fa-solid fa-eye"></i> 
+                </a>
+            </li>
+            <li><a href={% url "feed" %}><span>Feedback</span></a></li>
+           <!--  <li><a href={% url "cart" %}>
+                <i class="fa-solid fa-van-shuttle" style="margin:0; padding: 0; color: rgb(62, 0, 119);"></i>
+            </a></li> -->
+            <i class="user fa-user fa-solid"></i>
+            <div class="logo">
+                <div class="sub-menu-wrap">
+                    <div class="sub-menu">
+                        <div class="user-info">
+                            <a>
+                                <i class="fa-solid fa-user fa-2x"></i>
+                                <h3>{{agent.name}}</h3>
+                            </a>
+                        </div>  
+
+                        <hr>
+<!--                                 <div class="change">
+                                    <a href={% url "EditProfile" %}>
+                                        <i class="fa-solid fa-gear"></i>
+                                        Edit Profile
+                                    </a>
+                                </div> -->
+
+<!--                                 <div class="see">
+                                    <a href={% url "profile" %}>
+                                        <i class="fa-regular fa-user"></i>
+                                        See Profile
+                                    </a>
+                                </div> -->
+
+                                <div class="logout">
+                                    <a href={% url "logout" %}>
+                                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                        Logout
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% else %}
+                        <li class="logout">
+                            <a href={% url "login" %} style=" color:red"><i class="fa-solid fa-right-to-bracket"
+                                style="color:red"></i>Login</a>
+                            </li>   
+
+                            <!-- <a href={% url "profile" %}> <i class="fa-solid fa-user"></i> {{session.name}}</a> -->
+                            {% comment %} <a href="#">Register</a> {% endcomment %}
+                        </div>
+                        {% endif %}
+                    </ul>
+
+                </header>
+
+                <!-- new content -->
+                {% block abc %}
+                {% endblock %}
+
+                <!-- reviwe -->
+                {% block review %}
+                {% endblock %}
+
+                <!-- seats -->
+                {% block seats %}
+                {% endblock %}
+
+                <script>
+                    let user = document.querySelector(".user");
+                    let open = document.querySelector(".sub-menu-wrap");
+                    user.addEventListener("click" , ()=>{
+                        open.classList.toggle('open');
+                        user.classList.toggle('open');
+                    })
+                </script>
+
+            </body>
+
+            </html>

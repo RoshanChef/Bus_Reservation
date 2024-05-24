@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .con{
+    font-family:Georgia, Times, 'Times New Roman';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:2rem;
+  }
+  .wrapper{
+    height: 70vh;
+    box-shadow: 1px -2px 12px 1px #938080, 0px 5px 10px 1px #c7c7c7;
+    border-radius: 1rem;
+    width: 70vw;
+    display: flex;
+  }
+  .wrapper .left{
+    border-radius: 1rem 0 0 1rem;
+    width: 50%;
+    color: white;
+    fill: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background:linear-gradient(40deg , red , orange);
+  }
+  
+  .wrapper .left .user{
+    color: white;
+  }
+  .wrapper .left input  {
+    padding: .7rem;
+    text-align: center;
+    border-radius: 1rem;
+    border: none;
+  }
+  
+  .wrapper .right{
+    width: 50%;
+    display: flex;
+    margin:1rem 0 1rem 2rem;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .wrapper .right h3{
+    margin: 1rem 0 0 0 ;
+  }
+  .wrapper .right .info_data{
+    display: flex;
+    margin: 1rem 0 0 0 ;
+    padding: 1rem;
+  }
+  .data{
+    margin: 0 4rem 0 0;
+  }
+  .info .data input{
+    margin: 1rem 0;
+    padding: .5rem;
+    width: 13rem;
+  }
+  
+  .wrapper .right h1{
+  text-transform: uppercase;
+  font-weight: 3;
+  letter-spacing:.3rem;
+  }
+  
+  .wrapper .right p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(64, 64, 64,.7);
+    font-weight: 100;
+    margin-left: 1rem;
+  }
+  .projects{
+    margin-top: 1rem;
+  }
+  
+  
+  
+  
+
+.sub {
+    background: linear-gradient(to right, #ff7710, #ff9200);
+    background-color: #ff7710;
+    color: #fff;
+    font-family: Trebuchet MS;
+    font-size: 16px;
+    font-weight: 800;
+    font-style: italic;
+    text-decoration: none;
+    padding: 14px 15px;
+    border: 0px solid #000;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 2rem;
+    cursor: pointer;
+}
+
+.sub:hover {
+    animation: ani 1s linear 1 forwards;
+}
+
+  @keyframes ani {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    50% {
+      -webkit-transform: scale(1.1);
+              transform: scale(1.01);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+
+  .projects_data .data input{
+   width: 80%;
+    height: 2rem;
+    overflow: auto;
+    padding: 1rem;
+  }
+
+  

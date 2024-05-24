@@ -1,0 +1,85 @@
+{% extends "nav.html" %}
+{% block abc %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+        }
+
+        tr:nth-child(2n+3) {
+            background-color: rgb(230, 229, 229);
+            color: rgb(3, 3, 3);
+        }
+
+        table {
+            border-collapse: collapse;
+            width:100%;
+        }
+
+        .table {
+            margin: 1rem;
+            padding: 1rem;
+            border: 2px solid black;
+            border-radius: 1rem;
+        }
+
+        td {
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="table">
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Number</th>
+                <th>Email</th>
+                <th>Address</th>
+            </tr>
+            {% for i in dataFetch %}
+            <tr>
+                <td>{{i.name}}</ts>
+                <td>{{i.number}}</ts>
+                <td>{{i.email}}</ts>
+                <td>{{i.address}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="table">
+        <table>
+
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Post</th>
+            </tr>
+            {% for i in dataFetch2  %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+               <!-- **** if know the path **** -->
+
+                <!-- <td><img src="../../MEDIA/{{i.post}}"></td> -->
+
+                <td><img src="{{i.post.url}}" alt=""></td>
+
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+
+</html>
+{% endblock abc %}

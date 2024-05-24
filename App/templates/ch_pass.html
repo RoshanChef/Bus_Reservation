@@ -1,0 +1,117 @@
+{% extends "navbar.html" %}
+{% block abc %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Change password</title>
+
+  <link rel="stylesheet" href={% static "CSS/CSS/all.min.css" %}>
+  <link rel="stylesheet" href={% static "CSS/webfonts" %}>
+  <link rel="stylesheet" href={% static "CSS/changePass.css" %}>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="login-box">
+      <h2>Change password</h2>
+      <form method="post">
+        {% csrf_token %}
+        <div class="user-box">
+          <input type="password" name="oldPassword" required="" class="pass">
+          <label>Old password</label>
+          <i class="fa-solid fa-lock" onclick="me(this)"></i>
+        </div>
+        <div class="user-box">
+          <input type="password" name="password" required="" class="pass2">
+          <label>Password</label>
+          <i class="fa-solid fa-lock" onclick="me2(this)"></i>
+        </div>
+        <div class="user-box">
+          <input type="password" name="Cpassword" required="" class="pass3">
+          <label>Confirm Password</label>
+          <i class="fa-solid fa-lock" onclick="me3(this)"></i>
+        </div>
+        <div class="">
+          <input type="checkbox" name="" value="show password" onclick="check(this)">
+          show password
+        </div>
+
+
+        <button type="submit" class="sub"> 
+         
+         set password
+       </a>
+     </button>
+   </form>
+   
+   {% if error %}
+   <h4 style="color:red;">
+    {{error}}
+  </h4>
+  {% endif %}
+  
+</div>
+
+</div>
+
+<script type="text/javascript">
+
+  {% if update %}
+  alert('{{update}}');
+  {% endif %}
+  let password = document.querySelector('.pass');
+  let p2, p3;
+  p2 = document.querySelector(".pass2")
+  p3 = document.querySelector(".pass3")
+
+  let me = function (i) {
+    i.classList.toggle("fa-unlock");
+    if (password.type == "password") {
+      console.log("hello");
+      password.type = "text";
+    }
+    else {
+      password.type = "password";
+    }
+  }
+  let me2 = function (i) {
+    i.classList.toggle("fa-unlock");
+    if (p2.type == "password") {
+      console.log("hello");
+      p2.type = "text";
+    }
+    else {
+      p2.type = "password";
+    }
+  }
+  let me3 = function (i) {
+    i.classList.toggle("fa-unlock");
+    if (p3.type == "password") {
+      console.log("hello");
+      p3.type = "text";
+    }
+    else {
+      p3.type = "password";
+    }
+  }
+  let check = function (i) {
+    let lock = document.querySelectorAll('.fa-lock')
+    lock[1].classList.toggle('fa-unlock')
+    lock[2].classList.toggle('fa-unlock')
+    if (p2.type == "password" & p3.type == "password") {
+      p2.type = "text";
+      p3.type = "text";
+    }
+    else {
+      p2.type = "password";
+      p3.type = "password";
+    }
+  }
+</script>
+</body>
+
+</html>
+{% endblock abc %}

@@ -1,0 +1,97 @@
+{% extends "navbar.html" %}
+{% block abc %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Login</title>
+
+  <link rel="stylesheet" href={% static "CSS/CSS/all.min.css" %}>
+  <link rel="stylesheet" href={% static "CSS/webfonts" %}>
+  <link rel="stylesheet" href={% static "CSS/changePass.css" %}>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="login-box">
+      <h1>Login</h1>
+      <form method="post">
+        {% csrf_token %}
+        <div class="user-box">
+          <input type="text" name="email" required class="email">
+          <label>Enter Your Email<label>
+              <i class="fa-solid fa-mail"></i>
+        </div>
+        <div class="user-box">
+          <input type="password" name="pass" required="" class="pass" required>
+          <label>Password</label>
+          <i class="fa-solid fa-lock" onclick="me(this)"></i>
+        </div>
+        <div class="">
+          <input type="checkbox"  value="show password" onclick="check(this)">
+          show password
+        </div>
+
+
+        <div>
+          <button type="text" class="sub" style="display:block;">
+            Login
+          </button>
+          <a href={% url "reg" %} style=" font-size: .7rem; color: black; letter-spacing: .1rem; padding: 0;">
+              Register
+          </a>
+          <a href={% url "agen_reg" %} style="padding: 0; margin-left: 1rem; color:orangered; font-size: .7rem; color: black; letter-spacing: .1rem;">
+              Agency-Register
+          </a>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+
+    {% if mes %}
+    alert('{{mes}}')
+    {% endif %}
+
+    let password = document.querySelector('.pass');
+
+    //lock - unlock
+    let me = function (i) {
+      i.classList.toggle("fa-unlock");
+      if (password.type == "password") {
+        console.log("hello");
+        password.type = "text";
+      }
+      else {
+        password.type = "password";
+      }
+    }
+
+
+    let check = function (i) {
+      let lock = document.querySelector('.fa-lock')
+      lock.classList.toggle('fa-unlock');
+      if (password.type == "password") {
+        password.type = "text";
+      }
+      else {
+        password.type = "password";
+      }
+    }
+
+    const sub_btn = document.querySelector(".container")
+    
+    let out = function (item) {
+      sub_btn.classList.add("out")
+    }
+
+  </script>
+</body>
+
+</html>
+{% endblock abc %}

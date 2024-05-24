@@ -1,0 +1,60 @@
+{% extends "navbar.html" %}
+{% block abc %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>User Profile</title>
+
+  <link rel="stylesheet" href={% static "CSS/CSS/all.min.css" %}>
+  <link rel="stylesheet" href={% static "CSS/webfonts" %}>
+  <link rel="stylesheet" href={% static "CSS/profile.css" %}>
+  
+</head>
+
+<body>
+
+  {% if session %}
+  <div class="con">
+  <div class="wrapper">
+    <div class="left">
+      <i class="user fa-regular fa-user fa-6x"></i>
+      <h2>{{session.name}}</h2>
+    </div>
+    <div class="right">
+      <div class="info">
+        <h1>Information</h1>
+        <div class="info_data">
+          <div class="data">
+            <h4>Email</h4>
+            <p>{{session.email}}</p>
+          </div>
+          <div class="data">
+            <h4>Phone</h4>
+            <p>+91{{session.number}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="projects">
+        <h3>Location</h3>
+        <div class="projects_data">
+          <div class="data">
+            <h4 style="display: inline;">Address</h4>
+            <i class="fa-solid fa-location-dot"></i>
+            <p>{{session.address}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="waste"></div>
+    </div>
+  </div>
+</div>
+  {% endif %}
+
+</body>
+
+</html>
+{% endblock abc %}

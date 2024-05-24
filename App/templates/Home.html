@@ -1,0 +1,344 @@
+{% extends "navbar.html" %}
+{% block review %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" href={% static "CSS/CSS/all.min.css" %}>
+  <link rel="stylesheet" href={% static "CSS/webfonts" %}>
+  <link rel="stylesheet" href={% static "CSS/home.css" %}>
+
+</head>
+
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="home">
+      {% csrf_token %}
+      <div class="con">
+        <form method="post" class="form_con">
+          {% csrf_token %}
+          <div class="wrapper">
+            <div class="select_btn">
+              <span style="font-weight: bold; font-size: 1.3rem;">
+                From
+              </span>
+              <input type="text" style="display: none;" name="source" value="" id="source" required>
+              <i class="fa-solid fa-angle-down"></i>
+            </div>
+            <div class="content">
+              <div class="search">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" placeholder="search" class="Aone">
+                <ul class="options">
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="wrapper2">
+            <div class="select_btn2">
+              <span style="font-weight: bold; font-size: 1.3rem;">
+                To
+              </span>
+              <input type="text" style="display: none;" name="destination" id="destination" value="" required>
+              <i class="fa-solid fa-angle-down"></i>
+            </div>
+            <div class="content">
+              <div class="search">
+                <i class="fa-solid fa-search"></i>
+                <input class="search2" type="text" placeholder="search">
+                <ul class="options2">
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="wrapper">
+            <div class="btnCon">
+              <a href={% url "categ" %}>
+                <button type="submit" class="btn">
+                  Book Now
+                </button>
+              </a>
+            </div>
+          </div>
+        </form>
+
+
+      </div>
+
+    </div>
+  </div>
+
+
+  
+  <!-- image -->
+  <div class="image">
+    <div class="left">
+      <img src={% static "Images/family.jpg" %}>
+    </div>
+    <div class="right">
+      <div class="first">
+        <i class="fa-solid fa-clock"></i>
+        <h2>On Time Buses</h2>
+      </div>
+      <div class="second">
+        <i class="fa-solid fa-user-group"></i>
+        <h2>Friendly Staff</h2>
+      </div>
+      <div class="third">
+        <i class="fa-solid fa-car"></i>
+        <h2> Enjoy your Travel</h2>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- out places  -->
+
+  <h1 id="Our_place">Our Traveled places</h1>
+
+  <div class="slider">
+
+    <div class="list">
+      <div class="item">
+        <img src={% static "Images/akshardham.jpg" %}>
+        <div class="content_2">
+          <div class="title">Akshardham</div>
+          <div class="describe">
+            Akshardham Temple
+          </div>
+          <div class="desc">'Akshardham' literally means the divine abode of God. It is an eternal place for one to
+            offer devotion and experience everlasting peace. Swaminarayan Akshardham at Gandhinagar is a mandir – a
+            Hindu house of worship, a dwelling place for God, and a spiritual and cultural campus dedicated to devotion,
+            education and unification. Timeless devotional messages and vibrant Hindu traditions are echoed in its art
+            and architecture. The mandir is a humble tribute to Bhagwan Swaminarayan (1781- 1830) and the avatars, devas
+            and sages of Hinduism. This traditionally-styled complex was inaugurated on October 30th, 1992 with the
+            blessings of HH Pramukh Swami Maharaj and through the devoted efforts of skilled artisans and volunteers.
+          </div>
+
+          <!-- <button class="btn">switch</button> -->
+        </div>
+      </div>
+      <div class="item">
+        <img src={% static "Images/daman.jpg" %}>
+        <div class="content_2">
+          <div class="title">Daman</div>
+          <div class="describe">
+            Daman Night
+          </div>
+          <div class="desc">
+            Enter Daman, a former Portuguese colony now proudly standing as a union territory of India. Though
+            geographically separated from Gujarat, it pulsates with the vibrant heartbeat of Gujarati culture and
+            tradition. However, one remarkable distinction sets it apart: the freedom to legally acquire and revel in
+            the pleasures of alcohol - a luxury prohibited throughout the entire state. It is a peculiar facet of human
+            psychology that we are irresistibly drawn to that which is forbidden, shackled by societal constraints.
+            Daman, a veritable oasis of indulgence, becomes a magnetic haven for Gujaratis, particularly during holidays
+            and the exhilarating embrace of the New Year.
+          </div>
+
+          <!-- <button class="btn">switch</button> -->
+        </div>
+      </div>
+      <div class="item">
+        <img src={% static "Images/gha.jpg" %}>
+        <div class="content_2">
+          <div class="title">Green City</div>
+          <div class="describe">
+            Gandhinagar
+          </div>
+          <div class="desc">
+            The city boasts a blend of modern and traditional architectural styles. Notable landmarks include the
+            Akshardham Temple, which is an architectural masterpiece showcasing traditional Indian craftsmanship, and
+            the Secretariat complex, with its distinct modernist design.The city boasts a blend of modern and
+            traditional architectural styles. Notable landmarks include the Akshardham Temple, which is an architectural
+            masterpiece showcasing traditional Indian craftsmanship, and the Secretariat complex, with its distinct
+            modernist design.
+
+          </div>
+
+          <!-- <button class="btn">switch</button> -->
+        </div>
+      </div>
+      <div class="item">
+        <img src={% static "Images/Vadodara.jpg" %}>
+        <div class="content_2">
+          <div class="title">Vadodara</div>
+          <div class="describe">
+            Vadodara Villas
+          </div>
+          <div class="desc">Vadodara or Baroda is a cosmopolitan city located in Gujarat. Home to some of the most
+            exemplary displays of architecture, Vadodara is a fitting memorial to Maratha leader Sayaji Rao Gaekwad III
+            who had envisioned a dream to make this Big City an educational, industrial and commercial centre.
+          </div>
+
+          <!-- <button class="btn">switch</button> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="thumbnail">
+      <div class="item">
+        <img src={% static "Images/akshardham.jpg" %}>
+        <div class="content_2">
+          <div class="title">Gandhinagar</div>
+          <div class="description">Gandhinagar</div>
+        </div>
+      </div>
+      <div class="item">
+        <img src={% static "Images/daman.jpg" %}>
+        <div class="content_2">
+          <div class="title">Daman</div>
+          <div class="description">Daman</div>
+        </div>
+      </div>
+      <div class="item">
+        <img src={% static "Images/gha.jpg" %}>
+        <div class="content_2">
+          <div class="title">Gandhinagar</div>
+          <div class="description">Gandhinagar</div>
+        </div>
+      </div>
+      <div class="item">
+        <img src={% static "Images/Vadodara.jpg" %}>
+        <div class="content_2">
+          <div class="title">Vadodara</div>
+          <div class="description"> Vadodara Villas</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrows">
+      <button id="prev">
+        < </button>
+          <button id="next"> > </button>
+    </div>
+    <div class="time"></div>
+
+  </div>
+
+
+
+  <!--  review  -->
+  <div class="section__container">
+    <div class="review">
+      <p>TESTIMONIALS</p>
+      <h1>What our clients say about us.</h1>
+    </div>
+    <div class="testimonials__grid">
+      <div class="card">
+        <span><i class="fa-solid fa-user" style="color:#333;"></i></span>
+        <div class="st">
+          <i class="fa-solid fa-star" style="font-size: 15px;"></i>
+          <i class="fa-solid fa-star" style="font-size: 14px;"></i>
+          <i class="fa-solid fa-star" style="font-size: 12px;"></i>
+        </div>
+        <p>
+          Traveling is an enriching experience that broadens horizons and opens minds. Whether exploring vibrant
+          cities, immersing in diverse cultures, or marveling at natural wonders, each journey offers a unique tapestry
+          of memories
+        </p>
+        <hr />
+        <p class="name">Prabhas verma</p>
+      </div>
+
+      <div class="card">
+        <span><i class="fa-solid fa-user" style="color:#333;"></i></span>
+        <div class="star">
+          <i class="fa-solid fa-star" style="font-size: 15px;"></i>
+          <i class="fa-solid fa-star" style="font-size: 14px;"></i>
+          <i class="fa-solid fa-star" style="font-size: 13px;"></i>
+          <i class="fa-solid fa-star" style="font-size: 12px;"></i>
+        </div>
+        <p>
+          Every time recives best services from the staffs
+        </p>
+        <hr />
+        <p class="name">Saurabh Vyas</p>
+      </div>
+      <div class="card">
+        <span><i class="fa-solid fa-user" style="color:#333;"></i></span>
+        <div class="star">
+          <i class="fa-solid fa-star" style="font-size: 15px;"></i>
+          <i class="fa-solid fa-star" style="font-size: 14px;"></i>
+          <i class="fa-solid fa-star" style="font-size: 13px;"></i>
+        </div>
+        <p>
+          Every destination tells its own story, inviting travelers to embrace new perspectives and forge lasting
+          connections. With each adventure, we not only discover the world but also uncover facets of ourselves, making
+          travel an invaluable pursuit for personal growth and understanding.
+        </p>
+        <hr />
+        <p class="name">Tanya Grant</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--    footer     -->
+
+ <footer>
+   <div class="content">
+     <div class="left box">
+       <div class="upper">
+         <div class="topic">About us</div>
+         <p>CodingLab is a channel where you can learn HTML,
+         CSS, and also JavaScript along with creative CSS Animations and Effects.</p>
+       </div>
+       <div class="lower">
+         <div class="topic">Contact us</div>
+         <div class="phone">
+           <a href="#"><i class="fas fa-phone-volume"></i>+007 9089 6767</a>
+         </div>
+         <div class="email">
+           <a href="#"><i class="fas fa-envelope"></i>abc@gmail.com</a>
+         </div>
+       </div>
+     </div>
+     <div class="middle box">
+       <div class="topic">Our Services</div>
+       <div><a href={% url "agen_login" %}>Agency , Travelers , Buses Login</a></div>
+       <div><a href="#">Web UX Design, Reasearch</a></div>
+       <div><a href={% url "Home" %}>Book our First Tickets</a></div>
+       <div><a href={% url "agen_reg" %}>Agency Register</a></div>
+       <div><a href="#">Mobile Application Design</a></div>
+       <div><a href="#">Wire raming & Prototyping</a></div>
+     </div>
+     <div class="right box">
+
+
+         <div class="media-icons">
+           <a href="#"><i class="fab fa-facebook-f"></i></a>
+           <a href="#"><i class="fab fa-instagram"></i></a>
+           <a href="#"><i class="fab fa-twitter"></i></a>
+           <a href="#"><i class="fab fa-youtube"></i></a>
+           <a href="#"><i class="fab fa-linkedin-in"></i></a>
+         </div>
+
+     </div>
+   </div>
+   <div class="bottom">
+     <p>Copyright © 2024 <a href="#">Travel</a> All rights reserved</p>
+   </div>
+ </footer>
+
+
+
+  <script src={% static "JS/search.js" %}>
+
+  </script>
+</body>
+
+</html>
+{% endblock review %}

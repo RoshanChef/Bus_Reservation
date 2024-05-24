@@ -1,0 +1,422 @@
+{% extends "navbar.html" %}
+{% block seats %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>seats</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .seat_con {
+            /* margin-top: 1.5rem; */
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+        }
+
+        .Bseat,
+        .Aseat {
+            display: grid;
+            grid-template-columns: repeat(3, 4.5rem);
+            grid-template-rows: repeat(7, 4rem);
+        }
+
+        .box:hover {
+            cursor: pointer;
+            fill: rgb(161, 161, 181);
+        }
+
+        .box.selected {
+            fill: rgb(34, 173, 76);
+        }
+
+        .panel,
+        .item-1,
+        .item-2 {
+            display: flex;
+            justify-content: center;
+        }
+
+        #seat {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .box {
+            width: 2rem;
+        }
+
+        .item-1 .indication {
+            width: 20px;
+            height: 20px;
+            background-color: rgb(163, 162, 162);
+            margin-left: .5rem;
+            margin-right: .5rem;
+        }
+
+        .item-1,
+        .item-2 {
+            margin: 1rem;
+        }
+
+        .item-2 .indication {
+            width: 20px;
+            height: 20px;
+            margin-left: .5rem;
+            margin-right: .5rem;
+            background-color: rgb(34, 173, 76);
+        }
+
+
+
+        /* scroll effect  */
+
+        html {
+            overflow-x: hidden;
+        }
+
+        html::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        html::-webkit-scrollbar-track {
+            border-radius: 25px;
+            background: #f1f1f1;
+        }
+
+        html::-webkit-scrollbar-thumb {
+            background: rgb(255, 107, 66);
+        }
+
+
+        /* timeing  */
+        .timings {
+            user-select: none;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .dates {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .dates-item {
+            width: 50px;
+            height: 40px;
+            background: rgb(233, 233, 233);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 10px 0;
+            border-radius: 2mm;
+            cursor: pointer;
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+
+        .day {
+            font-size: 12px;
+        }
+
+        .times {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .time {
+            margin-left: 1rem;
+            margin-right: 1rem;
+            font-size: 14px;
+            width: fit-content;
+            padding: 7px 14px;
+            background: rgb(233, 233, 233);
+            border-radius: 2mm;
+            cursor: pointer;
+        }
+
+        .timings input:checked+label {
+            background: rgb(65, 63, 61);
+            color: #fff;
+        }
+
+
+        input {
+            display: none;
+        }
+
+        .price {
+            display: flex;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+            width: 35rem;
+        }
+
+        .total {
+            display: block;
+            margin: .5rem 1rem .5rem 1rem;
+/*            display: flex;*/
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            font-size: 16px;
+            font-weight: 500;
+            width: 15rem;
+        }
+
+        .total span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .price button {
+            background: rgb(60, 60, 60);
+            color: white;
+            font-family: poppins;
+            width: 7rem;
+            height: 3rem;
+            font-size: 14px;
+            padding: 7px 14px;
+            border-radius: 2mm;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="panel">
+        <div class="item-1">
+            <div class="indication">
+            </div>
+            <div class="tag">
+                Available
+            </div>
+        </div>
+        <div class="item-2">
+            <div class="indication">
+            </div>
+            <div class="tag">
+                Selected
+            </div>
+        </div>
+        <!-- <div class="item-3">
+            <div class="indication">
+
+            </div>
+            <div class="tag">
+
+            </div>
+        </div> -->
+
+    </div>
+    <div class="seat_con">
+        <div class="seat1">
+
+            <div class="Aseat">
+                <div class="chair">
+                    <input type="checkbox" id="seat">
+                    <label for="seat">
+                        <svg class="box" onclick="sel(this)" xmlns="http://www.w3.org/2000/svg" height="60" width="40"
+                        onclick="sel(this)" viewBox="0 -960 960 960">
+                        <path class="path"
+                        d="M200-120q-17 0-28.5-11.5T160-160v-40q-50 0-85-35t-35-85v-200q0-50 35-85t85-35v-80q0-50 35-85t85-35h400q50 0 85 35t35 85v80q50 0 85 35t35 85v200q0 50-35 85t-85 35v40q0 17-11.5 28.5T760-120q-17 0-28.5-11.5T720-160v-40H240v40q0 17-11.5 28.5T200-120Zm-40-160h640q17 0 28.5-11.5T840-320v-200q0-17-11.5-28.5T800-560q-17 0-28.5 11.5T760-520v160H200v-160q0-17-11.5-28.5T160-560q-17 0-28.5 11.5T120-520v200q0 17 11.5 28.5T160-280Zm120-160h400v-80q0-27 11-49t29-39v-112q0-17-11.5-28.5T680-760H280q-17 0-28.5 11.5T240-720v112q18 17 29 39t11 49v80Zm200 0Zm0 160Zm0-80Z" />
+                    </svg>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="seat2">
+        <div class="Bseat">
+
+        </div>
+    </div>
+</div>
+
+<!-- timing  -->
+<div class="con">
+    <div class="timings">
+        <div class="dates">
+            <input type="radio" name="date" id="d1" checked />
+            <label for="d1" class="dates-item">
+                <div class="day">Sun</div>
+                <div class="date">11</div>
+            </label>
+            <input type="radio" id="d2" name="date" />
+            <label class="dates-item" for="d2">
+                <div class="day">Mon</div>
+                <div class="date">12</div>
+            </label>
+            <input type="radio" id="d3" name="date" />
+            <label class="dates-item" for="d3">
+                <div class="day">Tue</div>
+                <div class="date">13</div>
+            </label>
+            <input type="radio" id="d4" name="date" />
+            <label class="dates-item" for="d4">
+                <div class="day">Wed</div>
+                <div class="date">14</div>
+            </label>
+            <input type="radio" id="d5" name="date" />
+            <label class="dates-item" for="d5">
+                <div class="day">Thu</div>
+                <div class="date">15</div>
+            </label>
+            <input type="radio" id="d6" name="date" />
+            <label class="dates-item" for="d6">
+                <div class="day">Fri</div>
+                <div class="date">16</div>
+            </label>
+            <input type="radio" id="d7" name="date" />
+            <label class="dates-item" for="d7">
+                <div class="day">Sat</div>
+                <div class="date">17</div>
+            </label>
+        </div>
+        <div class="times">
+            <input type="radio" name="time" id="t1" checked />
+            <label for="t1" class="time">11:00</label>
+            <input type="radio" id="t2" name="time" />
+            <label for="t2" class="time"> 14:30 </label>
+            <input type="radio" id="t3" name="time" />
+            <label for="t3" class="time"> 18:00 </label>
+            <input type="radio" id="t4" name="time" />
+            <label for="t4" class="time"> 21:30 </label>
+        </div>
+    </div>
+    <div class="price">
+        <form method="post">
+            {% csrf_token %}
+            <div style="display: flex;">
+                <div class="total">
+                    <span>Tickets</span>
+                    <input type="number" id="ticketC" name="ticketC" value="">
+                    <span for="ticketC" class="count">0</span>
+                </div>
+                <div class="total">
+                    <span>Price</span>
+                    <input type="number" id="price" name="price" value="">
+                    <label for="price" class="amount">0</label>
+                </div>
+            </div>
+
+            <a href={% url "cart" %}>
+                <button type="submit">Book</button>
+            </a>
+        </form>
+    </div>
+</div>
+
+<script>
+    let sel = function (chair) {
+        chair.classList.toggle('selected');
+    }
+
+
+    let p1 = document.querySelector(".Aseat");
+    let html;
+
+
+    for (let i = 0; i < 14; i++) {
+        p1.insertAdjacentHTML("beforeend",
+
+            ` <div class="chair">
+            <input type="checkbox" id="seat${i + 2}" class="check">
+            <label for="seat${i + 2}">
+            <svg class="box" onclick="sel(this)" xmlns="http://www.w3.org/2000/svg" height="60" width="40"
+            onclick="sel(this)" viewBox="0 -960 960 960">
+            <path class="path"
+            d="M200-120q-17 0-28.5-11.5T160-160v-40q-50 0-85-35t-35-85v-200q0-50 35-85t85-35v-80q0-50 35-85t85-35h400q50 0 85 35t35 85v80q50 0 85 35t35 85v200q0 50-35 85t-85 35v40q0 17-11.5 28.5T760-120q-17 0-28.5-11.5T720-160v-40H240v40q0 17-11.5 28.5T200-120Zm-40-160h640q17 0 28.5-11.5T840-320v-200q0-17-11.5-28.5T800-560q-17 0-28.5 11.5T760-520v160H200v-160q0-17-11.5-28.5T160-560q-17 0-28.5 11.5T120-520v200q0 17 11.5 28.5T160-280Zm120-160h400v-80q0-27 11-49t29-39v-112q0-17-11.5-28.5T680-760H280q-17 0-28.5 11.5T240-720v112q18 17 29 39t11 49v80Zm200 0Zm0 160Zm0-80Z" />
+            </svg>
+            </label>
+            </div>`
+            );
+    }
+
+    let p2 = document.querySelector('.Bseat');
+    for (let i = 0; i < 21; i++) {
+        p2.insertAdjacentHTML('beforeend',
+            ` <div class="chair">
+            <input type="checkbox" id="seat${i + 16}" class="check">
+            <label for="seat${i + 16}">
+            <svg class="box" onclick="sel(this)" xmlns="http://www.w3.org/2000/svg" height="60" width="40"
+            onclick="sel(this)" viewBox="0 -960 960 960">
+            <path class="path"
+            d="M200-120q-17 0-28.5-11.5T160-160v-40q-50 0-85-35t-35-85v-200q0-50 35-85t85-35v-80q0-50 35-85t85-35h400q50 0 85 35t35 85v80q50 0 85 35t35 85v200q0 50-35 85t-85 35v40q0 17-11.5 28.5T760-120q-17 0-28.5-11.5T720-160v-40H240v40q0 17-11.5 28.5T200-120Zm-40-160h640q17 0 28.5-11.5T840-320v-200q0-17-11.5-28.5T800-560q-17 0-28.5 11.5T760-520v160H200v-160q0-17-11.5-28.5T160-560q-17 0-28.5 11.5T120-520v200q0 17 11.5 28.5T160-280Zm120-160h400v-80q0-27 11-49t29-39v-112q0-17-11.5-28.5T680-760H280q-17 0-28.5 11.5T240-720v112q18 17 29 39t11 49v80Zm200 0Zm0 160Zm0-80Z" />
+            </svg>
+            </label>
+            </div>`
+            );
+    }
+
+    let tickets = p1.querySelectorAll("input");
+    tickets.forEach((ticket) => {
+        ticket.addEventListener("change", () => {
+            let amount = document.querySelector(".amount").innerHTML;
+            let count = document.querySelector(".count").innerHTML;
+            amount = Number(amount);
+            count = Number(count);
+
+            if (ticket.checked) {
+                count += 1;
+                amount += {{price}};
+            } else {
+                count -= 1;
+                amount -= {{price}};
+            }
+            document.querySelector(".amount").innerHTML = (amount);
+            document.querySelector(".count").innerHTML = (count);
+        });
+    });
+    tickets = p2.querySelectorAll("input");
+    tickets.forEach((ticket) => {
+        ticket.addEventListener("change", () => {
+            let amount = document.querySelector(".amount").innerHTML;
+            let count = document.querySelector(".count").innerHTML;
+            amount = Number(amount);
+            count = Number(count);
+
+            if (ticket.checked) {
+                count += 1;
+                amount += {{price}};
+            } else {
+
+                count -= 1;
+                amount -= {{price}};
+            }
+            document.querySelector("#ticketC").value = (count);
+            document.querySelector("#price").value = (amount);
+            document.querySelector(".amount").innerHTML = amount;
+            document.querySelector(".count").innerHTML = count;
+        });
+    });
+
+
+</script>
+</body>
+
+</html>
+{% endblock seats %}

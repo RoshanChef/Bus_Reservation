@@ -1,0 +1,127 @@
+{% extends "navbar.html" %}
+{% block abc %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Add Bus</title>
+
+	<link rel="stylesheet" href={% static "CSS/CSS/all.min.css" %}>
+	<link rel="stylesheet" href={% static "CSS/webfonts" %}>
+	<link rel="stylesheet" href={% static "CSS/changePass.css" %}>
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="login-box">
+			<h2>Add buses</h2>
+			<form method="post">
+				{% csrf_token %}
+				<div class="user-box">
+					<input type="text" value="" name="agency" required class="agency">
+					<label>Agency</label>
+					<i class="fa-solid fa-user"></i>
+				</div>
+				<div class="user-box">
+					<input type="text" value="" name="busid" required class="busid">
+					<label>Busid</label>
+					<i class="fa-solid fa-gear"></i>
+				</div>
+				<div class="user-box">
+					<input type="text" value="" name="price" required class="price">
+					<label>Price</label>
+					<i class="fa-solid fa-money"></i>
+				</div>
+				<div class="user-box user-box1">
+					<input type="number" name="seats" required value="36" readonly>
+					<label>seats</label>
+				</div>
+				<input type="number" style="display:none;" name="stateid" class="stateid" value="">
+				<div class="con">
+					<div class="wrapper">
+						<div class="select_btn">
+							<span>
+								Select State
+							</span>
+							<i class="fa-solid fa-angle-down"></i>
+						</div>
+						<div class="content">
+							<div class="search">
+								<i class="fa-solid fa-search"></i>
+								<input type="text" placeholder="search" class="Aone">
+								<ul class="options">
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a href={% url "Home" %}>
+					<button type="text" class="sub" style="display:block;">
+						Add bus
+					</button>
+				</a>
+
+
+
+			</form>
+
+
+		</div>
+
+	</div>
+
+	<script type="text/javascript">
+		{% if mes %}
+		alert('{{mes}}')
+		{% endif %}
+
+		const wrapper = document.querySelector(".wrapper");
+		const select_btn = document.querySelector(".select_btn");
+		const options = document.querySelector(".options");
+		const search = document.querySelector(".Aone");
+
+		select_btn.addEventListener("click", () => {
+			wrapper.classList.toggle('active');
+			addCities();
+		})
+
+
+		const cities = ["Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Delhi", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"];
+
+
+		function addCities(selectedCities) {
+			options.innerHTML = "";
+			cities.forEach(city => {
+				let isSelected = cities == selectedCities ? "selected" : ""
+				let li = `<li onclick="updateName(this)" class="${isSelected}">${city}</li>`;
+				options.insertAdjacentHTML('beforeend', li);
+			})
+		}
+
+		function updateName(selectedList) {
+			search.value = "";
+			addCities(selectedList.innerText);
+			wrapper.classList.remove('active');
+			// arrow.classList.toggle('fa-angle-up');
+			select_btn.firstElementChild.innerText = selectedList.innerText;
+			cities.indexOf(String(selectedList.innerText))
+			document.querySelector(".stateid").value = (cities.indexOf(String(selectedList.innerText))) + 1
+		}
+
+		search.addEventListener("keyup", () => {
+			let arr = [];
+			let searchVal = search.value.toLowerCase();
+			arr = cities.filter(data => {
+				return data.toLowerCase().startsWith(searchVal);
+			}).map(data => `<li onclick="updateName(this)">${data}</li>`).join("");
+			console.log(arr);
+			options.innerHTML = arr ? arr : `<p>Oops ! city not found </p>`;
+		})
+
+	</script>
+</body>
+
+</html>
+{% endblock abc %}

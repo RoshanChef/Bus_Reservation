@@ -1,0 +1,73 @@
+{% extends "navbar.html" %}
+{% block abc %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Profile</title>
+    <style>
+
+    </style>
+    <link rel="stylesheet" href={% static "CSS/CSS/all.min.css" %}>
+    <link rel="stylesheet" href={% static "CSS/webfonts" %}>
+    <link rel="stylesheet" href={% static "CSS/edit_pro.css" %}>
+</head>
+
+<body>
+
+    {% if session %}
+    <form class="con" method="post" >
+    {% csrf_token %}
+        <div class="wrapper">
+            <div class="left">
+                <i class="user fa-regular fa-user fa-6x"></i>
+                <input type="text" value="{{session.name}}" name="name">
+            </div>
+            <div class=" right">
+                <div class="info">
+                    <h1>Information</h1>
+                    <div class="info_data">
+                        <div class="data">
+                            <h4>Email</h4>
+                            <input type="text" value="{{session.email}}" name="email" readonly>
+                        </div>
+                        <div class="data">
+                            <h4>Phone</h4>
+                            <input type="text" name="number" value={{session.number}}>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="projects">
+                    <h3>Location</h3>
+                    <div class="projects_data">
+                        <div class="data">
+                            <h4 style="display: inline;">Address</h4>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <textarea name="address" value={{session.address}} cols="50" rows="4">{{session.address}}</textarea>
+                        </div>
+
+                        <input class="sub" type="submit" value="Submit">
+                        <a href={% url "changePass" %}>
+                        <input class="sub" value="Change Password">
+                        </a>
+
+                    </div>
+                </div>
+                <div class="waste"></div>
+            </div>
+        </div>
+    </form>
+    {% endif %}
+    <script>
+        {% if update %}
+        alert('{{update}}')
+        {% endif %}
+    </script>
+
+</body>
+
+</html>
+{% endblock abc %}

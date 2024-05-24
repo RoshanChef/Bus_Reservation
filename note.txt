@@ -1,0 +1,10 @@
+python manage.py makemigrations
+python manage.py migrate
+
+python manage.py runserver
+
+
+for taking image as input => enctype="multipart/form-data" and input type = file
+
+models.foreignkey(table,on_delete = models.CASCADE )
+on_delete => use delete accroding to table 

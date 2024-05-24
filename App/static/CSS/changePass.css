@@ -1,0 +1,252 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login-box {
+  width: 400px;
+  padding: 40px;
+  background: #fff;
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+  border-radius: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  position: relative;
+}
+
+
+.login-box h1,
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #333;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: .3rem;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+}
+
+.user-box>i {
+  position: absolute;
+  right: 0;
+  top: .2rem;
+  font-size: 1.2rem;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #333;
+  outline: none;
+  background: transparent;
+}
+
+.login-box .user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #333;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus~label,
+.login-box .user-box input:valid~label {
+  top: -20px;
+  left: 0;
+  color: orange;
+  font-size: 12px;
+}
+
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: orange;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.sub {
+  background: linear-gradient(to right, #ff7710, #ff9200);
+  background-color: #ff7710;
+  color: #fff;
+  font-family: Trebuchet MS;
+  font-size: 16px;
+  font-weight: 800;
+  font-style: italic;
+  text-decoration: none;
+  padding: 14px 15px;
+  border: 0px solid #000;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 2rem 0 0 0;
+  cursor: pointer;
+  width: 10rem;
+}
+
+.login-box .user-box1 label{
+  width: 100%;
+  padding: 10px 0;
+  color: #333;
+  margin-bottom: 30px;
+  border: none;
+  outline: none;
+  background: transparent;
+  top: -20px;
+  left: 0;
+  color: orange;
+  font-size: 12px;
+}
+
+
+/* slider  */
+
+.con {
+/*  display: grid;*/
+/*  grid-template-columns: repeat(2, 1fr);*/
+}
+
+.wrapper2,
+.wrapper {
+  width: 280px;
+/*  margin: 130px auto 0;*/
+  user-select: none;
+}
+
+.select_btn,
+.select_btn2,
+.options li,
+.options2 li {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.select_btn2,
+.select_btn {
+  background-color: white;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 20px;
+  height: 65px;
+  padding: 0 20px;
+
+  justify-content: space-between;
+}
+
+.select_btn2 i .select_btn i {
+  font-size: 18px;
+}
+
+.content {
+  background: white;
+  border-radius: 7px;
+  padding: 10px;
+  display: none;
+  transition: all .5s linear;
+}
+
+.wrapper.active .select_btn i,
+.wrapper2.active .select_btn2 i {
+  transform: rotate(-180deg);
+
+}
+
+.wrapper2.active .content,
+.wrapper.active .content {
+  display: block;
+}
+
+.content .search {
+  position: relative;
+}
+
+.search i {
+  position: absolute;
+  color: orange;
+  margin-top: .1rem;
+  font-size: 1rem;
+}
+
+.search input {
+  height: 45px;
+  width: 100%;
+  font-size: 17px;
+  padding: 0 15px 0 43px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #b3b3b3;
+}
+
+.content .options,
+.content .options2 {
+  margin-top: 10px;
+  max-height: 12rem;
+  overflow-y: auto;
+  padding-left: 10px;
+
+}
+
+.options li,
+.options2 li {
+  height: 50px;
+  transition: all .3s linear;
+  border-radius: 5px;
+  list-style: none;
+  user-select: none;
+}
+
+.options li:hover,
+li.selected,
+li.selected2,
+.options2 li:hover {
+  padding: 10px;
+  background-color: rgba(255, 166, 0, 0.5);
+}
+
+.options::-webkit-scrollbar,
+.options2::-webkit-scrollbar {
+  width: 7px;
+}
+
+.options::-webkit-scrollbar-track,
+.options2::-webkit-scrollbar-track {
+  border-radius: 25px;
+  background: #f1f1f1;
+}
+
+.options::-webkit-scrollbar-thumb,
+.options2::-webkit-scrollbar-thumb {
+  border-radius: 25px;
+  background: orange;
+}
+
+html{
+  overflow-x: hidden;
+}
