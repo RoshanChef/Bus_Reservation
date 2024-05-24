@@ -1,4 +1,4 @@
-<h2> Hello welcome to my <i>Git</i></h2>
+<h2> Hello welcome to Project <i>Git</i></h2>
 
 ##<img align='right' src='http://www.jenyalestina.com/blog/wp-content/uploads/2019/05/web-development-1024x582.jpg' width='300"'>
 
@@ -7,7 +7,7 @@
 
 I am <B style="color:yellow;">Roshan Kalmathe</B>.I love to do web development and open to learning new technologies.
 
-## 💻 Projects
+## 💻 Project : Bus Reservation System
 
 ## ⚡ Technologies 
 - Front-end development using **HTML, Javascript,CSS,**
