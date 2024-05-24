@@ -16,4 +16,3 @@ I am <B style="color:yellow;">Roshan Kalmathe</B>.I love to do web development a
 ## 👋 Reach out to me 
 - 💬 Ask me about anything.
 - 💎 Fun fact: You lose automatically if you dont try.
-![time and work 5](https://github.com/RoshanChef/Bus_Reservation/assets/103868228/db317898-1a9c-4ccd-b095-df73d9494b81)
