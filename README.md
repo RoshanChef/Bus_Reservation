@@ -1,5 +1,5 @@
 
-## 💻 - Project in red : Bus Reservation System
+## 💻 $${\color{lightgreen}Light \space Green}$$ Project in red : Bus Reservation System
 
 ## ⚡ Technologies 
 - Front-end development using **HTML, Javascript,CSS,**
