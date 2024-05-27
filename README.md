@@ -1,5 +1,5 @@
 
-## 💻 <p style="color:"yellow" ">Project</p> : Bus Reservation System
+## 💻 <p style="color:yellow; ">Project</p> : Bus Reservation System
 
 ## ⚡ Technologies 
 - Front-end development using **HTML, Javascript,CSS,**
