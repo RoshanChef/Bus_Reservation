@@ -1,4 +1,3 @@
-$${\color{#F2FF42}Project in red : Bus Reservation System}$$
 ## 💻 Project in red : Bus Reservation System
 
 ## ⚡ Technologies 
