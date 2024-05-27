@@ -1,17 +1,13 @@
-<h2> Hello welcome to Project <i>Git</i></h2>
-
-##<img align='right' src='http://www.jenyalestina.com/blog/wp-content/uploads/2019/05/web-development-1024x582.jpg' width='300"'>
-
-[![Linkedin Badge](https://img.shields.io/badge/-Lindkeden-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/suyash-srivastava-458b0117)](https://www.linkedin.com/in/suyash-srivastava-458b01173) 
-[![Gmail Badge](https://img.shields.io/badge/-Gmail-Red?style=flat-square&logo=Gmail&logoColor=white&link=mailto:roshan.kalmatheroshan@gmail.com)](mailto:roshan.kalmatheroshan@gmail.com)
-
-I am <B style="color:yellow;">Roshan Kalmathe</B>.I love to do web development and open to learning new technologies.
 
 ## 💻 Project : Bus Reservation System
 
 ## ⚡ Technologies 
 - Front-end development using **HTML, Javascript,CSS,**
 - Backend development using **SQL,Python Django**
+
+## Note
+- You need to install some library which mandatory to run the project
+- admin password : admin
 
 ## 👋 Reach out to me 
 - 💬 Ask me about anything.
