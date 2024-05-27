@@ -1,4 +1,4 @@
-$${\color{orange}Light \space Green}$$
+$${\color{#333}Light \space Green}$$
 ## 💻 Project in red : Bus Reservation System
 
 ## ⚡ Technologies 
