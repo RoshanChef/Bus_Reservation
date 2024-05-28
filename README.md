@@ -1,4 +1,4 @@
-## 💻 Project in red : Bus Reservation System
+## 💻 Project : Bus Reservation System
 
 ## ⚡ Technologies 
 - Front-end development using **HTML, Javascript,CSS,**
